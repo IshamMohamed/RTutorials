@@ -64,3 +64,22 @@ output$Prediction <- wbcd_test_pred
 # 'dataset' holds the input data for this script
 fit <- kmeans(dataset[, 1:4], 5) #5 is the number of cluster we need to put
 mydata <- data.frame(dataset, fit$cluster)
+
+#******** Time Series Plot from online
+births <- scan("http://robjhyndman.com/tsdldata/data/nybirths.dat")
+ts(births, frequency = 12, start = c(1946, 1))
+plot(ts(births, frequency = 12, start = c(1946, 1)))
+milk <- monthly_milk_production_pounds_p
+milkTS <- ts(milk)
+plot.ts(milkTS)
+plot(ts(milkTS, frequency = 12, start = c(1962, 1), end = c(1975, 12)))
+milkdecompose <- decompose(Milkts)
+plot(milkdecompose)
+
+#******** Time Series Plot from Excel
+library(readxl)
+monthly_milk_production_pounds_p <- read_excel("monthly-milk-production-pounds-p.xls", sheet = "Data")
+View(monthly_milk_production_pounds_p)
+milk <- monthly_milk_production_pounds_p
+milkTS <- ts(milk)
+plot.ts(milkTS)
