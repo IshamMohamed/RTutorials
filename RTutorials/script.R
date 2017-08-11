@@ -37,3 +37,25 @@ library(methods)#base package
 groceries <- read.transactions("groceries.csv", sep = ",")
 Temp <- apriori(groceries, parameter = list(support = 0.006, confidence = 0.25, minlen = 2))
 output <- inspect(Temp[1:100])
+
+#************* KNN Cancer Data - Work with Power BI
+dataset <- read.transactions("wisc_bc_data.csv", sep = ",")
+
+# data cleaning
+normalize <- function(x) { return((x - min(x)) / (max(x) - min(x))) }
+
+# split data
+wbcd_n <- as.data.frame(lapply(dataset[3:32], normalize))
+train <- wbcd_n[1:450,]
+test <- wbcd_n[450:569,]
+
+# prediction
+library(class)
+
+train_labels <- dataset[1:450, 2]
+test_labels <- dataset[450:569, 2]
+
+wbcd_test_pred <- knn(train = train, test = test, cl = train_labels, k = 21)
+
+output <- dataset[450:569,]
+output$Prediction <- wbcd_test_pred
