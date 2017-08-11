@@ -29,3 +29,11 @@ a + geom_jitter() #adds Jitter chart to the plot with the data
 a + geom_density_2d()
 a + geom_bin2d(binwidth = c(6, 6))
 
+#************* Market Basket Analysis
+library(arules) #install this
+library(Matrix) #install this
+library(methods)#base package
+
+groceries <- read.transactions("C://Users//ismolk//OneDrive - IFS//Downloads//files for R and Power BI//files for R and Power BI//groceries.csv", sep = ",")
+Temp <- apriori(groceries, parameter = list(support = 0.006, confidence = 0.25, minlen = 2))
+output <- inspect(Temp[1:100])
