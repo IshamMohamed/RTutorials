@@ -5,3 +5,9 @@ student_gender <- factor(c("male", "female", "male"))
 #************** List Practice
 student_Jane <- list(student_name[2], student_age[2], student_level[2], student_gender[2])
 students <- list(student_name, student_age, student_level, student_gender)
+#************** Data Frame
+studentDataFrame <- data.frame(student_name, student_age, student_level, student_gender)
+studentDataFrame[, 1] #all rows and column 1 
+studentDataFrame[1,] #all columns of row 1
+studentDataFrame$student_age
+
