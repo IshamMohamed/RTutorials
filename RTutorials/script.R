@@ -18,3 +18,14 @@ library(dplyr)
 View(iris)
 select(iris, contains("Wi")) #will show all the data that comes in columns that have Wi in heading
 
+install.packages("RODBC") # For SQL Server
+
+#************** Plot
+install.packages("ggplot2")
+library(ggplot2)
+View(mpg)
+a <- ggplot(mpg, aes(cty, hwy)) #will create an empty plot
+a + geom_jitter() #adds Jitter chart to the plot with the data
+a + geom_density_2d()
+a + geom_bin2d(binwidth = c(6, 6))
+
