@@ -69,12 +69,6 @@ mydata <- data.frame(dataset, fit$cluster)
 births <- scan("http://robjhyndman.com/tsdldata/data/nybirths.dat")
 ts(births, frequency = 12, start = c(1946, 1))
 plot(ts(births, frequency = 12, start = c(1946, 1)))
-milk <- monthly_milk_production_pounds_p
-milkTS <- ts(milk)
-plot.ts(milkTS)
-plot(ts(milkTS, frequency = 12, start = c(1962, 1), end = c(1975, 12)))
-milkdecompose <- decompose(Milkts)
-plot(milkdecompose)
 
 #******** Time Series Plot from Excel
 library(readxl)
@@ -84,3 +78,5 @@ milk <- monthly_milk_production_pounds_p
 milkTS <- ts(milk)
 plot.ts(milkTS)
 plot(ts(milkTS, frequency = 12, start = c(1962, 1), end = c(1972, 12)))
+milkdecompose <- decompose(milkTS)
+plot(milkdecompose)
