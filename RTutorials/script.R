@@ -34,6 +34,6 @@ library(arules) #install this
 library(Matrix) #install this
 library(methods)#base package
 
-groceries <- read.transactions("C://Users//ismolk//OneDrive - IFS//Downloads//files for R and Power BI//files for R and Power BI//groceries.csv", sep = ",")
+groceries <- read.transactions("groceries.csv", sep = ",")
 Temp <- apriori(groceries, parameter = list(support = 0.006, confidence = 0.25, minlen = 2))
 output <- inspect(Temp[1:100])
