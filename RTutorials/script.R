@@ -11,3 +11,10 @@ studentDataFrame[, 1] #all rows and column 1
 studentDataFrame[1,] #all columns of row 1
 studentDataFrame$student_age
 
+#************** Packages
+install.packages("AzureML")
+install.packages("dplyr")
+library(dplyr)
+View(iris)
+select(iris, contains("Wi")) #will show all the data that comes in columns that have Wi in heading
+
