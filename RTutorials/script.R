@@ -83,3 +83,4 @@ View(monthly_milk_production_pounds_p)
 milk <- monthly_milk_production_pounds_p
 milkTS <- ts(milk)
 plot.ts(milkTS)
+plot(ts(milkTS, frequency = 12, start = c(1962, 1), end = c(1972, 12)))
