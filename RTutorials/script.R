@@ -59,3 +59,8 @@ wbcd_test_pred <- knn(train = train, test = test, cl = train_labels, k = 21)
 
 output <- dataset[450:569,]
 output$Prediction <- wbcd_test_pred
+
+#**************** K Mean
+# 'dataset' holds the input data for this script
+fit <- kmeans(dataset[, 1:4], 5) #5 is the number of cluster we need to put
+mydata <- data.frame(dataset, fit$cluster)
